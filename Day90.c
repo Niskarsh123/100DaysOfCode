@@ -1,27 +1,16 @@
-//Write a program to find the roots of a quadratic equation and categorize them.
+//Define a struct with enum Gender and print person's gender.
 #include <stdio.h>
-#include <math.h>
 
 int main() {
-    float a, b, c, d, r1, r2;
-    scanf("%f %f %f", &a, &b, &c);
+    enum Gender {MALE, FEMALE, OTHER};
+    struct Person {
+        char name[50];
+        enum Gender g;
+    };
 
-    d = b*b - 4*a*c;
+    struct Person p = {"Ayush", MALE};
 
-    if (d > 0) {
-        r1 = (-b + sqrt(d)) / (2*a);
-        r2 = (-b - sqrt(d)) / (2*a);
-        printf("Real and distinct: %.2f %.2f", r1, r2);
-    }
-    else if (d == 0) {
-        r1 = -b / (2*a);
-        printf("Real and equal: %.2f", r1);
-    }
-    else {
-        float real = -b / (2*a);
-        float imag = sqrt(-d) / (2*a);
-        printf("Complex: %.2f + %.2fi, %.2f - %.2fi", real, imag, real, imag);
-    }
-
+    printf("Name: %s, Gender: %s\n", p.name, 
+        p.g == MALE ? "Male" : p.g == MALE ? "male" : "Other");
     return 0;
 }
